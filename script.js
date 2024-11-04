@@ -27,13 +27,10 @@ function playGame() {
     let computerScore = 0;
 
     function playRound(humanChoice, computerChoice) {
-        if (humanChoice === "Rock" && computerChoice === "Paper") {
-            computerScore++;
-            return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
-        } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-            computerScore++;
-            return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
-        } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+        if (humanChoice === "Rock" && computerChoice === "Paper" ||
+            humanChoice === "Paper" && computerChoice === "Scissors" ||
+            humanChoice === "Scissors" && computerChoice === "Rock") 
+        {
             computerScore++;
             return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
         } else if (humanChoice === computerChoice) {
