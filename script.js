@@ -1,13 +1,24 @@
 function getComputerChoice() {
-    const computerChoice = Math.floor(Math.random() * 3)
-    if (computerChoice === 0) {
+    const computerChoice = (Math.floor(Math.random() * 3)) + 1;
+    if (computerChoice === 1) {
         return "Rock";
-    } else if (computerChoice === 1){
+    } else if (computerChoice === 2){
         return "Paper";
     } else {
         return "Scissors";
     };
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    const userChoice = parseInt(prompt('Enter a number between 1 and 3'));
+    if (userChoice === 1) {
+        return "Rock";
+    } else if (userChoice === 2){
+        return "Paper";
+    } else {
+        return "Scissors";
+    };
+}
+
+console.log(getHumanChoice());
 
