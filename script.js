@@ -18,35 +18,46 @@ function getHumanChoice() {
     } else {
         return "Scissors";
     };
-}
-
-let humanScore = 0;
-let computerScore = 0;
-
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === "Rock" && computerChoice === "Paper") {
-        computerScore++;
-        return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
-    } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-        computerScore++;
-        return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
-    } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
-        computerScore++;
-        return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
-    } else if (humanChoice === computerChoice) {
-        return console.log("It's a tie! You both chose " + humanChoice);
-    } else {
-        humanScore++;
-        return console.log('You won! ' + humanChoice + ' beats ' + computerChoice);
-    } 
 };
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === "Rock" && computerChoice === "Paper") {
+            computerScore++;
+            return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
+        } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+            computerScore++;
+            return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
+        } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+            computerScore++;
+            return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
+        } else if (humanChoice === computerChoice) {
+            return console.log("It's a tie! You both chose " + humanChoice);
+        } else {
+            humanScore++;
+            return console.log('You won! ' + humanChoice + ' beats ' + computerChoice);
+        };
+    };
+
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection)
+    }
+
+    if (humanScore < computerScore) {
+        console.log("You loose! You: " + humanScore + '. Computer: ' + computerScore);
+    } else if (humanScore > computerScore) {
+        console.log("You won! You: " + humanScore + '. Computer: ' + computerScore);
+    } else {
+        console.log("It's a tie! You both have " + humanScore + " points.");
+    }
+};
 
 
-
-
+playGame();
