@@ -32,12 +32,12 @@ function playGame() {
             humanChoice === "Scissors" && computerChoice === "Rock") 
         {
             computerScore++;
-            return console.log('You loose! ' + computerChoice + ' beats ' + humanChoice);
+            return console.log('You loose! Computer Choice: ' + computerChoice + ' beats Human Choice: ' + humanChoice);
         } else if (humanChoice === computerChoice) {
             return console.log("It's a tie! You both chose " + humanChoice);
         } else {
             humanScore++;
-            return console.log('You won! ' + humanChoice + ' beats ' + computerChoice);
+            return console.log('You won! Human Choice: ' + humanChoice + ' beats Computer Choice: ' + computerChoice);
         };
     };
 
