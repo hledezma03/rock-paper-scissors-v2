@@ -2,6 +2,7 @@ const playerBtns = document.querySelectorAll('button');
 const roundWinner = document.querySelector('.round-winner');
 const cpuPoints = document.querySelector('.cpu-points');
 const playerPoints = document.querySelector('.player-points');
+const winnerText = document.querySelector('.winner-text');
 let humanScore = 0;
 let computerScore = 0;
 
@@ -40,24 +41,26 @@ function resetGame() {
     cpuPoints.textContent = '0';
 }
 
+function checkWinner() {
+    if (humanScore == 3 || computerScore == 3) {
+        if (humanScore < computerScore) {
+            winnerText.textContent = "You loose! You: " + humanScore + '. Computer: ' + computerScore;
+        } else {
+            winnerText.textContent = "You won! You: " + humanScore + '. Computer: ' + computerScore;
+        }
+    }
+}
+
+
 
     
 
     playerBtns.forEach(button => {
         button.addEventListener("click",(e) => {
-            if (humanScore == 3 || computerScore == 3) {
-                if (humanScore < computerScore) {
-                    roundWinner.textContent = "You loose! You: " + humanScore + '. Computer: ' + computerScore;
-                } else {
-                    roundWinner.textContent = "You won! You: " + humanScore + '. Computer: ' + computerScore;
-                }
-                resetGame();
-            }else {
-                const humanChoice = e.target.innerText;
-                const computerChoice = getComputerChoice();
-                playRound(humanChoice, computerChoice);
-            }
-         
+            const humanChoice = e.target.innerText;
+            const computerChoice = getComputerChoice();
+            playRound(humanChoice, computerChoice);
+            checkWinner();
         })
     });
 
