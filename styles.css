@@ -44,7 +44,7 @@ h1 {
     background-color: #c67c10;
 }
 
-.round-winner {
+.round-winner, .winner-text {
     font-size: 24px;
     font-family: Verdana, sans-serif;
 }
@@ -53,6 +53,10 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     font-family: 'Courier New', monospace;
+}
+
+.hidden {
+    display: none;
 }
 
 button {
